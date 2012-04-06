@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Mura CMS - Plugin Name</title>
+
+	<link rel="icon" href="admin/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="admin/images/favicon.ico" type="image/x-icon" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="noindex, nofollow, noarchive" />
+	<meta http-equiv="cache control" content="no-cache, no-store, must-revalidate" />
+
+	<script src="admin/js/jquery/jquery.js?coreversion=4864" type="text/javascript"></script>
+	<script src="admin/js/jquery/jquery.collapsibleCheckboxTree.js?coreversion=4864" type="text/javascript"></script>
+	<script src="admin/js/jquery/jquery-ui.js?coreversion=4864" type="text/javascript"></script>
+	<script src="admin/js/jquery/jquery-ui-i18n.min.js?coreversion=4864" type="text/javascript"></script>
+
+	<link href="admin/css/jquery/default/jquery.ui.all.css?coreversion=4864" rel="stylesheet" type="text/css" />
+
+	<script src="admin/js/prototype.js" type="text/javascript" language="Javascript"></script>
+	<script src="admin/js/admin.min.js?coreversion=4864" type="text/javascript" language="Javascript"></script>
+
+	<script src="admin/js/json2.js" type="text/javascript" language="Javascript"></script>
+
+	<script type="text/javascript">
+		var htmlEditorType='';
+		var context='';
+		var themepath='/default/includes/themes/merced';
+		var rb='en';
+		var siteid='default';
+		var sessionTimeout=10800;
+	</script>
+
+	<script type="text/javascript">
+		var dtExample="11/10/2018";
+		var dtCh="/";
+		var dtFormat =[0,1,2];
+		var dtLocale="en-US";
+	</script> 
+
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			setDatePickers(".datepicker",dtLocale);
+			setTabs(".tabs",0);
+			setHTMLEditors();
+			setAccordions(".accordion",0);
+			setCheckboxTrees();
+			setColorPickers(".colorpicker");
+		});
+	</script>
+
+	<script language="JavaScript">
+		if (top.location != self.location) {
+			top.location.replace(self.location)
+		}
+	</script>
+
+	<link href="admin/css/admin.min.css?coreversion=4864" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/mfw1.css" />
+</head>
+
+<body id="cPlugins">
+
+<div id="header">
+	<a id="blueRiverLink" href="http://blueriver.com" target="_blank" title="mura by blueRiver"></a>
+	<h1>Mura CMS</h1>
+
+	<ul id="navUtility">
+		<li id="navAdminUsers"><a href="#">Administrative Users</a>
+			<ul class="addMenuNav">
+				<li><a href="#">View Admin Users</a></li>
+				<li><a href="#">Add User</a></li>
+				<li class="last"><a href="#">Add Group</a></li>
+			</ul>
+		</li>
+		<li id="navSiteSettings"><a href="#">Site Settings</a>
+			<ul class="addMenuNav">
+				<li><a href="#">Global Settings</a></li>
+				<li><a href="#">Edit Current Site</a></li>
+				<li><a href="#">Add Site</a></li>
+				<li class="last"><a href="#">Site Copy</a></li>
+			</ul>
+		</li>
+		<li id="navEditProfile"><a href="#">Edit Profile</a></li>
+		<li id="navHelp"><a href="#">Help</a>
+			<ul class="addMenuNav"><li><a id="navHelpDocs" href="http://docs.getmura.com/index.cfm">Mura Docs</a></li>
+				<li><a id="navFckEditorDocs" href="http://docs.cksource.com/" target="_blank">Editor/File Manager Docs</a></li>
+				<li><a id="navProg-API" href="http://www.getmura.com/mura/5/components/" target="_blank">Component API</a></li>
+				<li><a id="navCSS-API" href="http://docs.getmura.com/index.cfm/developer-guides/" target="_blank">Developer Guides</a></li>
+				<li class="last"><a id="navHelpForums" href="http://www.getmura.com/forum/" target="_blank">Support Forum</a></li>
+			</ul>
+		</li>
+		<li id="navLogout"><a href="#">Log Out</a></li>
+	</ul>
+
+	<div id="siteSelectWrapper">
+		<form novalidate="novalidate" id="siteSelect" name="siteSelect" method="get" action="admin/">
+			<input type="hidden" name="fuseaction" value="cDashboard.main">
+			<select name="siteid" onchange="if(this.value != ''){document.forms.siteSelect.submit();}">
+				<option vaue="">Select Site</option>
+				<option value="default">Default</option>
+			</select>
+		</form>
+	</div>
+
+	<p id="currentSite">Current Site &rarr; <a href="#" target="_blank">Default</a></p>
+	<p id="welcome"><strong>Welcome, Admin User.</strong> You will be automatically logged out in <span id="clock">0:00:00</span>.</p>
+</div>
+
+<div id="container">
+	<div id="navigation" class="sidebar">
+		<ul id="navSecondary">
+			<li><a href="#">Dashboard</a></li>
+			<li><a href="#">Site Manager</a></li>
+			<li><a href="#">Change Sets</a></li>
+			<li><a href="#">Components</a></li>
+			<li id="current"><a href="#">Plugins</a></li>
+			<li><a href="#">Categories</a></li>
+			<li><a href="#">Content Collections</a></li>
+			<li><a href="#">Forms</a></li>
+			<li><a href="#">Site Members</a></li>
+			<li><a href="#">Advertising</a></li>
+			<li><a href="#">Email Broadcaster</a></li>
+			<li><a href="#">Mailing Lists</a></li>
+			<li><a href="#">Highpoint Contact Info</a></li> 
+			<li><a href="#">File Manager</a></li>
+			<li><a href="#">Permissions</a></li>
+			<li><a href="#">Reload Application</a></li>
+		</ul>
+		<p id="copyright">
+			Core Version 5.6.4864<br />
+			Site Version 5.6<br /><br />
+		</p>
+	</div>
+
+	<div id="content"> 
+		<div class="mfw1adminblock">
+			<div id="pageTitle"><h2>Plugin Name</h2></div>
+				<div class="navwrapper">
+					<ul>
+						<li class="first active">
+							<a href="#">Action One</a>
+						</li>
+						<li>
+							<a href="#">Action Two</a>
+						</li>
+						<li>
+							<a href="#">Action Three</a>
+						</li>
+						<li class="last">
+							<a href="#">Action Four</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		<div class="mfw1adminblock">
+			<p>Mock up your Mura plugin designs!</p>
+			<p><a href="http://www.github.com/s992/muraPluginMockups" target="_blank">http://www.github.com/s992/muraPluginMockups</a></p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" language="javascript">
+stripe('stripe');
+</script>
+</body>
+</html> 
